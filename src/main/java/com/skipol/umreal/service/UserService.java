@@ -41,4 +41,9 @@ public class UserService {
     public void delete(Long id){
         userRepository.deleteById(id);
     }
+
+    public UserDTO byLogin(String name) {
+        User user = userRepository.findByLogin(name);
+        return userMapper.userToUserDTO(user);
+    }
 }
