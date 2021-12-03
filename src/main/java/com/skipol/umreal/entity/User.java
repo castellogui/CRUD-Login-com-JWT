@@ -32,6 +32,9 @@ public class User implements Serializable {
     private String last_name;
 
     @Column
+    private String email;
+
+    @Column
     private String date_birth;
 
     @Column
