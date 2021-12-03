@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/umrealDS
+    username: guilhermecastello
+    password: '@Usuario10.'
+    driverClassName: org.postgresql.Driver
