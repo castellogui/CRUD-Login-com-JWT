@@ -2,8 +2,6 @@ package com.skipol.umreal.dto;
 
 import lombok.*;
 
-import javax.persistence.*;
-import java.io.Serializable;
 
 @Getter
 @Setter
@@ -12,8 +10,6 @@ import java.io.Serializable;
 @Builder(toBuilder = true)
 public class UserDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String login;
     private String password;

@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -22,19 +21,19 @@ public class UserService {
     public Page<UserDTO> list(Pageable pageable){
         Page<User> userPage = userRepository.findAll(pageable);
         int totalElements = userPage.getNumberOfElements();
-        return userMapper. userPageToUserDTOPage(userPage, pageable, totalElements);
+        return userMapper.userPageToUserDTOPage(userPage, pageable, totalElements);
     }
 
     @Transactional
     public UserDTO save(UserDTO userDTO){
         User user = userMapper.userDTOToUser(userDTO);
-        userRepository.save(user);
+        user = userRepository.save(user);
 
         return userMapper.userToUserDTO(user);
     }
 
     public UserDTO byId(Long id){
-        User user = userRepository.getById(id);
+        User user = userRepository.getOne(id);
         return userMapper.userToUserDTO(user);
     }
 

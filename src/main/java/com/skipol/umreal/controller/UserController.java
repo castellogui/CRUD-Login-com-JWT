@@ -39,7 +39,8 @@ public class UserController {
         if (authentication.isAuthenticated()) {
             String token = jwtTokenUtil.generateToken(userRequestDTO.getLogin());
 
-            userResponseDTO = UserResponseDTO.builder().login(userRequestDTO.getLogin())
+            userResponseDTO = UserResponseDTO.builder()
+                    .login(userRequestDTO.getLogin())
                     .token(token)
                     .build();
 
@@ -72,6 +73,7 @@ public class UserController {
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public UserDTO update(@PathVariable("id") Long id, @RequestBody UserDTO userDTO) {
         UserDTO.UserDTOBuilder userDTOBuilder = userDTO.toBuilder();
+
         userDTO = userDTOBuilder
                 .id(id)
                 .build();

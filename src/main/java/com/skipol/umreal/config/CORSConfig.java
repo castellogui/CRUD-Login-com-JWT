@@ -18,7 +18,7 @@ public class CORSConfig {
 
     @Bean
     @SuppressWarnings("unchecked")
-    public FilterRegistrationBean corsFilter(){
+    public FilterRegistrationBean simpleCorsFilter(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 
         CorsConfiguration config = new CorsConfiguration();
